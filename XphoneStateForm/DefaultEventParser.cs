@@ -7,20 +7,6 @@ using System.Threading.Tasks;
 
 namespace XphoneStateForm
 {
-    public struct UserEvent
-    {
-        public string EventName;
-        public string EventFunc;
-        public string EventDesciption;
-    }
-
-    public struct UserState
-    {
-        public string Name;
-        public string TransitionFunc;
-        public List<UserEvent> OverrideEvents;
-    }
-
     class DefaultEventParser
     {
         /// <summary>
@@ -28,7 +14,7 @@ namespace XphoneStateForm
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public List<UserEvent> ParseDefaultImplementationEvent(string fileName)
+        public static List<UserEvent> ParseDefaultImplementationEvent(string fileName)
         {
             string fileContent = File.ReadAllText(fileName);
             string defineFunc = "void userHandler_defaultImplementation (userStatePtr state)\r\n{";
@@ -65,42 +51,42 @@ namespace XphoneStateForm
                 string[] lines = contentFunc.Split( new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None );
                 for(int j = 0; j < lines.Length; j++)
                 {
-                    string assignFunc = lines[j].Trim().Replace(" ", "").Replace(" ", "");
-                    int idxAssign = assignFunc.IndexOf("state->", 0);
-                    if (idxAssign >= 0)
+                    string s = lines[j].Trim();
+
+                    if (s.Length >= 2 && s[0] != '/' && s[1] != '/')
                     {
-                        int idxStart = assignFunc.IndexOf("->");
-                        int idxEqual = assignFunc.IndexOf('=');
-                        int idxStop = assignFunc.IndexOf(';');
-                        if (idxEqual > 0 && idxStop > 0)
+                        string assignFunc = s.Replace(" ", "").Replace(" ", "");
+                        int idxAssign = assignFunc.IndexOf("state->", 0);
+                        if (idxAssign >= 0)
                         {
-                            string s1 = assignFunc.Substring(idxStart + 2, idxEqual - idxStart - 2);
-                            string s2 = assignFunc.Substring(idxEqual + 1, idxStop - idxEqual - 1);
-                            UserEvent userEvent;
-                            userEvent.EventName = s1;
-                            userEvent.EventFunc = s2;
-                            userEvent.EventDesciption = ParseFunc(userEvent.EventFunc, fileContent);
-                            userEvents.Add(userEvent);
+                            int idxStart = assignFunc.IndexOf("->");
+                            int idxEqual = assignFunc.IndexOf('=');
+                            int idxStop = assignFunc.IndexOf(';');
+                            if (idxEqual > 0 && idxStop > 0)
+                            {
+                                string s1 = assignFunc.Substring(idxStart + 2, idxEqual - idxStart - 2);
+                                string s2 = assignFunc.Substring(idxEqual + 1, idxStop - idxEqual - 1);
+                                UserEvent userEvent = new UserEvent();
+                                userEvent.EventName = s1;
+                                userEvent.EventFunc = s2;
+                                userEvent.EventDesciption = ParseFunc(userEvent.EventFunc, fileContent);
+                                userEvents.Add(userEvent);
+                            }
                         }
                     }
                 }
-              
             }
 
             return userEvents;
         }
 
-        List<UserEvent> GetDefaultImplementationEvent()
-        {
-            UserEvent event1;
-            event1.EventName = "keyboard0";
-            event1.EventFunc = "defaultUserHandler";
-
-
-            return null;
-        }
-
-        public string ParseFunc(string func, string fileContent)
+        /// <summary>
+        /// Get function implementation 
+        /// </summary>
+        /// <param name="func"></param>
+        /// <param name="fileContent"></param>
+        /// <returns></returns>
+        public static string ParseFunc(string func, string fileContent)
         {
             string funcDefine = "void " + func + " (userStatePtr* state)\r\n{";
             int idx = fileContent.IndexOf(funcDefine);
