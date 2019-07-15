@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace XphoneStateForm
 {
+    /// <summary>
+    /// this definition must be struct and not class
+    /// </summary>
     public struct UserEvent
     {
         public string EventName;// keyboard0
@@ -13,12 +16,15 @@ namespace XphoneStateForm
         public string EventDesciption;// implement of EventFunc
     }
 
+    /// <summary>
+    /// Save for singgle user state include all infomation Name, transition function and all handle event
+    /// </summary>
     public class UserState
     {
         public string Name = "UNDEFINED";
         public string TransitionFunc;
         public List<UserEvent> OverrideEvents = new List<UserEvent>();
-
+        public string FileSource;
         public List<string> ToListOverrideEvent()
         {
             List<string> overrideList = new List<string>();
@@ -31,7 +37,12 @@ namespace XphoneStateForm
 
             return overrideList;
         }
-
+        
+        /// <summary>
+        /// Get all Handle event include default handle event
+        /// </summary>
+        /// <param name="listEvent"></param>
+        /// <returns></returns>
         public UserState MergeWithDefaultHandle(List<UserEvent> listEvent)
         {
             UserState userState = new UserState();
@@ -41,10 +52,11 @@ namespace XphoneStateForm
             userState.Name = this.Name;
             userState.TransitionFunc = this.TransitionFunc;
             userState.OverrideEvents = new List<UserEvent>(listEvent);
+            userState.FileSource = this.FileSource;
 
             for (i = 0; i < numEvents; i++)
             {
-                if(ExistedEvent(userState.OverrideEvents[i].EventName, ref idxExited))
+                if(OverridedEvent(userState.OverrideEvents[i].EventName, ref idxExited))
                 {
                     //userState.OverrideEvents[i].EventName = this.OverrideEvents[idxExited].EventName;
                     //userState.OverrideEvents[i].EventFunc = this.OverrideEvents[idxExited].EventFunc;
@@ -56,7 +68,13 @@ namespace XphoneStateForm
             return userState;
         }
 
-        bool ExistedEvent(string EventName, ref int idxIfExisted)
+        /// <summary>
+        /// Check event overrided in State
+        /// </summary>
+        /// <param name="EventName"></param>
+        /// <param name="idxIfExisted"></param>
+        /// <returns></returns>
+        bool OverridedEvent(string EventName, ref int idxIfExisted)
         {
             bool existed = false;
             int i;
@@ -72,6 +90,7 @@ namespace XphoneStateForm
             }
             return existed;
         }
+
     }
     
 }

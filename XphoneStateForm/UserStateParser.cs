@@ -9,8 +9,11 @@ namespace XphoneStateForm
 {
     class UserStateParser
     {
-        const string TRANS_RET_TYPE = "userStatePtr";
-        const string NODE_DEFINE = "static struct userHandlerState";
+        public const string TRANS_RET_TYPE = "userStatePtr";
+        public const string NODE_DEFINE = "static struct userHandlerState";
+        public const string TRANS_FUNC = "userHander_changeState";
+        public const string JUMP_BACK_FUNC = "state_JumpBackState";
+
         /// <summary>
         /// Parse all infomation of a state
         /// </summary>
@@ -21,7 +24,10 @@ namespace XphoneStateForm
             UserState state = new UserState();
             string contentFile = File.ReadAllText(fileName);
             string FuncDefine = ParseTransitionFunction(contentFile);
-            if(string.IsNullOrEmpty(FuncDefine))
+            // Keep track with file parsed
+            state.FileSource = fileName;
+
+            if (string.IsNullOrEmpty(FuncDefine))
             {
                 return null;
             }
@@ -57,7 +63,7 @@ namespace XphoneStateForm
                     // not a comment line
                     if (s.Length >= 2 && s[0] != '/' && s[1] != '/')
                     {
-                        if (s.Contains(Node + "."))
+                        if (s.IndexOf(Node + ".") == 0)
                         {
                             // Found Name of state
                             if(s.Contains(Node + ".name"))
@@ -179,6 +185,60 @@ namespace XphoneStateForm
             }
 
             return contentFunc;
+        }
+
+
+        public static List<UserState> GetNextStates(UserEvent userEvent, List<UserState> AllState)
+        {
+            List<UserState> nextStates = new List<UserState>();
+            string funcDescipt = userEvent.EventDesciption;
+            string[] lines = funcDescipt.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            int numLines = lines.Length;
+            int numStates = AllState.Count;
+
+            UserState BACK_STATE = new UserState();
+            BACK_STATE.Name = "BACK STATE";
+            BACK_STATE.TransitionFunc = JUMP_BACK_FUNC;
+
+            for (int i = 0; i < numLines; i++)
+            {
+                string lineCurr = lines[i].Trim();
+                // not a comment line
+                if(lineCurr.IndexOf("\\\\") != 0)
+                {
+                    if(lineCurr.Contains(TRANS_FUNC))
+                    {
+                        int idxStart = lineCurr.IndexOf(TRANS_FUNC);
+                        int idxEnd = lineCurr.IndexOf(");");
+                        
+                        if(idxEnd > idxStart)
+                        {
+                            if(lineCurr.Contains(JUMP_BACK_FUNC))
+                            {
+                                nextStates.Add(BACK_STATE);
+                            }
+                            else
+                            {
+                                int idxComma = lineCurr.IndexOf(",");
+                                string transFunc = lineCurr.Substring(idxComma + 1, idxEnd - idxComma - 1).Trim();
+                                for(int j = 0; j < numStates; j++)
+                                {
+                                    if(AllState[j].TransitionFunc == transFunc)
+                                    {
+                                        nextStates.Add(AllState[j]);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error index in transition function: Check!!!");
+                        }
+                    }
+                }
+            }
+
+            return nextStates;
         }
     }
 }
