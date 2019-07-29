@@ -15,10 +15,10 @@ namespace XphoneStateForm
     public partial class Form1 : Form
     {
         string FoderLastSelected = "";
+        UserState mStateViewing = null;
 
         private const int StartLocX = 20;
         private const int StartLocY = 10;
-
 
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace XphoneStateForm
             Setting.ReadSetting();
         }
 
-        public void AddControl(Panel panel, UserState state)
+        public void AddEvent(Panel panel, UserState state)
         {
            
             int locnewX;
@@ -60,10 +60,11 @@ namespace XphoneStateForm
                 locnewY = mCurrLocY;
 
                 ctrl.Name = "DymanicLabel" + mCountImg;
+
                 ctrl.BackColor = Color.Transparent;
                 ctrl.Location = new Point(locnewX, locnewY);
 
-                ctrl.Click += DynamicLabelClick;
+                ctrl.Click += DynamicStateEventClick;
 
                 // TODO: add event handler
                 panel.Controls.Add(ctrl);
@@ -72,7 +73,52 @@ namespace XphoneStateForm
             }
         }
 
-        private void DynamicLabelClick(object sender, EventArgs e)
+        void SetSourceTextBoxState()
+        {
+            AutoCompleteStringCollection autoTextBoxState = new AutoCompleteStringCollection();
+
+            textBoxSearchState.AutoCompleteCustomSource.Clear();
+            textBoxSearchState.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBoxSearchState.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            addItems(autoTextBoxState);
+            textBoxSearchState.AutoCompleteCustomSource = autoTextBoxState;
+        }
+
+        void SetSourceTextBoxEvent(UserState state)
+        {
+            AutoCompleteStringCollection autoTextBoxState = new AutoCompleteStringCollection();
+            string[] arrEvents = state.ToListOverrideEvent().ToArray();
+
+            textBoxEvent.AutoCompleteCustomSource.Clear();
+            textBoxEvent.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBoxEvent.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            autoTextBoxState.AddRange(arrEvents);
+            if(arrEvents.Length > 0)
+            {
+                textBoxEvent.Text = arrEvents[0];
+            }
+            textBoxEvent.AutoCompleteCustomSource = autoTextBoxState;
+
+            mStateViewing = state;
+        }
+
+        private void addItems(AutoCompleteStringCollection col)
+        {
+            int i;
+            int numStates = Database.AllUserState.Count;
+            List<string> names = new List<string>();
+            for (i = 0; i < numStates; i++)
+            {
+                names.Add(Database.AllUserState[i].Name);
+            }
+
+            col.Clear();
+            col.AddRange(names.ToArray());
+        }
+
+        private void DynamicStateEventClick(object sender, EventArgs e)
         {
             Button button = sender as Button;
             UserEvent userEvent = (UserEvent)button.Tag;
@@ -80,10 +126,10 @@ namespace XphoneStateForm
             textBoxDebug.Text = userEvent.EventDesciption;
 
             List<UserState> nextState = UserStateParser.GetNextStates(userEvent, Database.AllUserState);
-            AddState(panelNextState, nextState);
+            AddNextState(panelNextState, nextState);
         }
 
-        public void AddState(Panel panel, List<UserState> state)
+        public void AddNextState(Panel panel, List<UserState> state)
         {
             int locnewX;
             int locnewY;
@@ -129,7 +175,10 @@ namespace XphoneStateForm
 
         private void DynamicStateClick(object sender, EventArgs e)
         {
-            
+            Button b = sender as Button;
+            Clipboard.SetText(b.Text);
+
+            labelStatus.Text = "Copied to clipboard";
         }
 
         void AssignAllState()
@@ -149,6 +198,13 @@ namespace XphoneStateForm
                 comboBox1.Tag = (Database.AllUserState[0]);
                 textBoxFileLocation.Text = ((UserState)(comboBox1.Tag)).FileSource;
             }
+
+            SetSourceTextBoxState();
+            if(numStates > 0)
+            {
+                SetSourceTextBoxEvent(Database.AllUserState[0]);
+            }
+            MessageBox.Show(numStates + " states");
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -202,6 +258,8 @@ namespace XphoneStateForm
                 string[] AllFiles = Directory.GetFiles(folderDlg.SelectedPath, "*", SearchOption.AllDirectories);
                 int numFiles = AllFiles.Length;
 
+                Database.AllUserState.Clear();
+
                 for (int i = 0; i < numFiles; i++)
                 {
                     if(AllFiles[i].Contains(".c") || AllFiles[i].Contains(".cpp"))
@@ -233,12 +291,15 @@ namespace XphoneStateForm
             comboBox1.Tag = (Database.AllUserState[idxSelected]);
             textBoxFileLocation.Text = ((UserState)(comboBox1.Tag)).FileSource;
 
-            AddControl(this.panel1, Database.AllUserState[idxSelected]);
+            AddEvent(this.panelEvent, Database.AllUserState[idxSelected]);
+            SetSourceTextBoxEvent(Database.AllUserState[idxSelected]);
+
+            this.labelStatus.Text = string.Format("{0} events", ((UserState)(comboBox1.Tag)).OverrideEvents.Count);
         }
 
-        private void panel1_MouseEnter(object sender, EventArgs e)
+        private void panelEvent_MouseEnter(object sender, EventArgs e)
         {
-            panel1.Focus();
+            panelEvent.Focus();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -334,6 +395,51 @@ namespace XphoneStateForm
                 {
                     Process.Start(fileOpen);
                 }
+            }
+        }
+
+        private void TextBoxSearchState_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string txt = (sender as TextBox).Text;
+                int i;
+                int numStates = Database.AllUserState.Count;
+                
+                for (i = 0; i < numStates; i++)
+                {
+                    if(Database.AllUserState[i].Name == txt)
+                    {
+                        comboBox1.Text = txt;
+                        comboBox1.Tag = (Database.AllUserState[i]);
+                        textBoxFileLocation.Text = ((UserState)(comboBox1.Tag)).FileSource;
+
+                        AddEvent(this.panelEvent, Database.AllUserState[i]);
+
+                        this.labelStatus.Text = string.Format("{0} events", ((UserState)(comboBox1.Tag)).OverrideEvents.Count);
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void TextBoxEvent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string txt = (sender as TextBox).Text;
+                int i;
+
+                for (i = 0; i < panelEvent.Controls.Count; i++)
+                {
+                    if (panelEvent.Controls[i].Text == txt)
+                    {
+                        DynamicStateEventClick(panelEvent.Controls[i], null);
+                        break;
+                    }
+                }
+
             }
         }
     }

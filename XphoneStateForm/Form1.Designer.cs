@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxUserHandleFoder = new System.Windows.Forms.TextBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelEvent = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +45,12 @@
             this.panelNextState = new System.Windows.Forms.Panel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxFileLocation = new System.Windows.Forms.TextBox();
             this.buttonOpenFileLocation = new System.Windows.Forms.Button();
+            this.textBoxFileLocation = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxSearchState = new System.Windows.Forms.TextBox();
+            this.textBoxEvent = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +59,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 136);
+            this.comboBox1.Location = new System.Drawing.Point(22, 166);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(373, 21);
             this.comboBox1.TabIndex = 0;
@@ -65,7 +68,7 @@
             // State
             // 
             this.State.AutoSize = true;
-            this.State.Location = new System.Drawing.Point(22, 117);
+            this.State.Location = new System.Drawing.Point(22, 121);
             this.State.Name = "State";
             this.State.Size = new System.Drawing.Size(32, 13);
             this.State.TabIndex = 1;
@@ -111,13 +114,13 @@
             // 
             // panel1
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(405, 86);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 658);
-            this.panel1.TabIndex = 10;
-            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panelEvent.AutoScroll = true;
+            this.panelEvent.Location = new System.Drawing.Point(405, 121);
+            this.panelEvent.Margin = new System.Windows.Forms.Padding(2);
+            this.panelEvent.Name = "panel1";
+            this.panelEvent.Size = new System.Drawing.Size(409, 658);
+            this.panelEvent.TabIndex = 10;
+            this.panelEvent.MouseEnter += new System.EventHandler(this.panelEvent_MouseEnter);
             // 
             // menuStrip1
             // 
@@ -162,7 +165,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(22, 303);
+            this.button2.Location = new System.Drawing.Point(22, 340);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 23);
             this.button2.TabIndex = 12;
@@ -202,27 +205,10 @@
             this.panel2.Controls.Add(this.buttonOpenFileLocation);
             this.panel2.Controls.Add(this.textBoxFileLocation);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(22, 185);
+            this.panel2.Location = new System.Drawing.Point(22, 222);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 100);
             this.panel2.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "File Location";
-            // 
-            // textBoxFileLocation
-            // 
-            this.textBoxFileLocation.Location = new System.Drawing.Point(5, 29);
-            this.textBoxFileLocation.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxFileLocation.Name = "textBoxFileLocation";
-            this.textBoxFileLocation.Size = new System.Drawing.Size(358, 20);
-            this.textBoxFileLocation.TabIndex = 16;
             // 
             // buttonOpenFileLocation
             // 
@@ -234,17 +220,66 @@
             this.buttonOpenFileLocation.UseVisualStyleBackColor = true;
             this.buttonOpenFileLocation.Click += new System.EventHandler(this.ButtonOpenFileLocation_Click);
             // 
+            // textBoxFileLocation
+            // 
+            this.textBoxFileLocation.Location = new System.Drawing.Point(5, 29);
+            this.textBoxFileLocation.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxFileLocation.Name = "textBoxFileLocation";
+            this.textBoxFileLocation.Size = new System.Drawing.Size(358, 20);
+            this.textBoxFileLocation.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "File Location";
+            // 
+            // textBoxSearchState
+            // 
+            this.textBoxSearchState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxSearchState.Location = new System.Drawing.Point(22, 141);
+            this.textBoxSearchState.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSearchState.Name = "textBoxSearchState";
+            this.textBoxSearchState.Size = new System.Drawing.Size(371, 20);
+            this.textBoxSearchState.TabIndex = 18;
+            this.textBoxSearchState.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxSearchState_KeyDown);
+            // 
+            // textBoxEvent
+            // 
+            this.textBoxEvent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxEvent.Location = new System.Drawing.Point(405, 97);
+            this.textBoxEvent.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEvent.Name = "textBoxEvent";
+            this.textBoxEvent.Size = new System.Drawing.Size(409, 20);
+            this.textBoxEvent.TabIndex = 19;
+            this.textBoxEvent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxEvent_KeyDown);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(404, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Event";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1823, 763);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxEvent);
+            this.Controls.Add(this.textBoxSearchState);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.panelNextState);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxUserHandleFoder);
             this.Controls.Add(this.label1);
@@ -272,7 +307,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxUserHandleFoder;
         private System.Windows.Forms.Button buttonBrowse;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelEvent;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
@@ -286,6 +321,9 @@
         private System.Windows.Forms.Button buttonOpenFileLocation;
         private System.Windows.Forms.TextBox textBoxFileLocation;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxSearchState;
+        private System.Windows.Forms.TextBox textBoxEvent;
+        private System.Windows.Forms.Label label4;
     }
 }
 

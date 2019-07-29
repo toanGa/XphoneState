@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUserEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserEvent>
+    <EventName>keyboard0</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard1</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard2</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard3</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard4</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard5</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard6</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard7</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard8</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboard9</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardStar</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardStarHold</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardHashTag</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardUp</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardDown</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardUpKeep</EventName>
+    <EventFunc>defaultUpKeepHandler</EventFunc>
+    <EventDesciption>void defaultUpKeepHandler (userStatePtr* state)
+{
+	if(is_need_hold_event() &amp;&amp; get_keyRelease())
+	{
+		deepsleep_turn_on_counter();
+
+		(*state)-&gt;keyboardUp(state);
+
+		create_hold_up_down_clock(50);
+	}
+	else
+	{
+		delete_hold_up_down_clock();
+	}
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardDownKeep</EventName>
+    <EventFunc>defaultDownKeepHandler</EventFunc>
+    <EventDesciption>void defaultDownKeepHandler (userStatePtr* state)
+{
+	if(is_need_hold_event() &amp;&amp; get_keyRelease())
+	{
+		deepsleep_turn_on_counter();
+
+		(*state)-&gt;keyboardDown(state);
+
+		create_hold_up_down_clock(50);
+	}
+	else
+	{
+		delete_hold_up_down_clock();
+	}
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardLeft</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardRight</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardOk</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardLeftSelect</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardRightSelect</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardRightSelectPress</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardRightSelectKeep</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardCall</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardCallEnd</EventName>
+    <EventFunc>defaulEndCallNumber</EventFunc>
+    <EventDesciption>void defaulEndCallNumber (userStatePtr* state)
+{
+    SOS_DEBUG("Default end call press \r\n");
+
+    uint32_t sendEvent;
+	if(check_state_call_in_list())
+	{
+	    sendEvent = EVENT_USERHANDLER_CALLPROCESS_CALLEND;
+	    Mailbox_post (g_mbox_call_process, &amp;sendEvent, BIOS_WAIT_FOREVER);
+	}
+
+    if (keyboard_lock_status())
+    {
+        SOS_DEBUG("KB locked \r\n");
+        delete_states_until_meet_state_lock();
+
+        userStatePtr state_cur = get_current_userStatePtr();
+        userHander_changeState (&amp;state_cur, transitionToWakeup);
+    }
+    else if (get_first_time_use())
+    {
+        // Delete the newest state and jumpback
+        SOS_DEBUG("fistime use phone \r\n");
+        userHander_changeState (state, state_JumpBackState(state));
+    }
+    else
+    {
+        SOS_DEBUG("transition TO main \r\n");
+        state_Reset();
+        userHander_changeState (state, transitionToMain);
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardRightSelectHold</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>startCallFail</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusDisconnect</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusConnect</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusHolding</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusWaiting</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusAlerting</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusBusy</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>sendSmsFail</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>sendSmsOk</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>decryptMsgDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>comePhoneBookSave</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>deleteFinish</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>comeCreateSMS</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>processRespondKey</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>genKeyDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateWatch</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateCountDownTime</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateAllMessage</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>autoBack</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>autoBackTimeout</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveSync</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveRemoteSecure</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveRemoteNormal</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveSyncAgain</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>finishSetupSecure</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>syncTimeout</EventName>
+    <EventFunc>defaultSyncTimeout</EventFunc>
+    <EventDesciption>void defaultSyncTimeout (userStatePtr* state)
+{
+	(*state)-&gt;refreshGUI(state);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>testSecureCall</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>displayDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>fullSMS</EventName>
+    <EventFunc>defaultUserHandlerFullSmS</EventFunc>
+    <EventDesciption>void defaultUserHandlerFullSmS(userStatePtr* state)
+{
+    // Display pop_up
+    setCustomPopup(TYPE_AUTO_HIDE, STATE_WARNING,
+            text.smsBoxFull, 0, 0, 0);
+    uint32_t sendEvent = EVENT_USERHANDLER_GUI_CUSTOM_POPUP_SHOW;
+            send_gui_donot_care(sendEvent);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveUSSDNoRespond</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveUSSDNeedRespond</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>receiveUSSDTerminate</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardPowerPress</EventName>
+    <EventFunc>defaultPowerButtonPress</EventFunc>
+    <EventDesciption>void defaultPowerButtonPress(userStatePtr* state)
+{
+	// check if release less than 1s -&gt; go to deep sleep
+	// if 1s &lt; time &lt; 3s -&gt; do not action
+	// if time &gt; 3s -&gt; popup shutdown
+    powerButtonPress_callback();
+
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardPowerRelease</EventName>
+    <EventFunc>defaultPowerButtonRelease</EventFunc>
+    <EventDesciption>void defaultPowerButtonRelease(userStatePtr* state)
+{
+	// just check for time press key
+    powerButtonRelease_callback();
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardPowerSos</EventName>
+    <EventFunc>defaultNotSOS</EventFunc>
+    <EventDesciption>void defaultNotSOS (userStatePtr* state)
+{
+	flag_SOS_Call = 0;
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>transitionToSos</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>shake</EventName>
+    <EventFunc>defaultShake</EventFunc>
+    <EventDesciption>void defaultShake (userStatePtr* state)
+{
+    SOS_DEBUG("go inside shake handler\r\n");
+
+    // Check OS busy
+    if (is_OS_busy())
+    {
+        SOS_DEBUG("OS is busy \r\n");
+        return;
+    }
+    SOS_DEBUG("Shake --&gt; deepsleep!\r\n");
+    deepsleep_force_timer();
+    // Transition to lock_wakeup state
+    userHander_changeState(state,transitionToLockKb);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>flipUp</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>flipDown</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>turn</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>doubleTap</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>pickUp</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>dimmingLCD</EventName>
+    <EventFunc>defaultDimmingLCD</EventFunc>
+    <EventDesciption>void defaultDimmingLCD (userStatePtr* state)
+{
+    // Turn off led keyboard
+    led_kb_disable();
+    // Send event to Sleep controller - half of Deepsleep time
+    dimmingHalfLedLCD();
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>lockKeypad</EventName>
+    <EventFunc>defaultlockKeypad</EventFunc>
+    <EventDesciption>void defaultlockKeypad (userStatePtr* state)
+{
+    userHander_changeState (state, transitionToLockKb);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>gotoDeepSleep</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>deleteClock</EventName>
+    <EventFunc>deleteClock</EventFunc>
+    <EventDesciption>void deleteClock(userStatePtr* state)
+{
+    if(pairkey_timeout_clock != NULL)
+    {
+        Clock_delete(&amp;pairkey_timeout_clock);
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>warningPairkey</EventName>
+    <EventFunc>defaultWarningPairkey</EventFunc>
+    <EventDesciption>void defaultWarningPairkey(userStatePtr* state)
+{
+    // Turn on LCD and Led Keyboard
+    phone_on_led_kb_bl();
+
+    userHander_changeState(state, transitionToPairKeyWarning);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>warningPairkeyMyNumber</EventName>
+    <EventFunc>defaultWarningPairkeyMyNumber</EventFunc>
+    <EventDesciption>void defaultWarningPairkeyMyNumber(userStatePtr* state)
+{
+    // Turn on LCD and Led Keyboard
+    phone_on_led_kb_bl();
+
+    userHander_changeState(state, transitionToPairKeyWarningMyNumber);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>haveNewMsg</EventName>
+    <EventFunc>defaultHaveNewMsg</EventFunc>
+    <EventDesciption>void defaultHaveNewMsg (userStatePtr* state)
+{
+    // toan add
+    if(0 == strcmp((*state)-&gt;name,"INBOX_STATE"))
+    {
+        increase_inbox_gui_value();
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>callStatusIncoming</EventName>
+    <EventFunc>defaultCallStatusIncoming</EventFunc>
+    <EventDesciption>void defaultCallStatusIncoming (userStatePtr* state)
+{
+    // Reset deepsleep timer
+    deepsleep_turn_on_counter();
+    tran_Event(EVENT_USERHANDLER_DSP_STOP_BUFF);
+
+	if (NORMAL == get_ring_tone_mode())
+    {
+        tran_Event(EVENT_CALLPROCESS_DSP_PLAY_RING_TONE_1);
+        if (get_is_viberation() &amp;&amp; get_sound_setting().ring.ring_viberation)
+        {
+            SOS_DEBUG("Start vibration\r\n");
+            haptic_pulse_start(1000);
+        }
+    }
+    else
+    {
+        tran_Event(EVENT_CALLPROCESS_DSP_SILENT_MODE);
+        if (get_is_viberation() &amp;&amp; get_sound_setting().ring.silent_vileration)
+        {
+            SOS_DEBUG("Start vibration\r\n");
+            haptic_pulse_start(1000);
+        }
+    }
+
+    userHander_changeState(state,transitionToCallIncoming);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>pairKey</EventName>
+    <EventFunc>defaultPairKey</EventFunc>
+    <EventDesciption>void defaultPairKey (userStatePtr* state)
+{
+    // Turn on LCD and Led Keyboard
+    phone_on_led_kb_bl();
+
+    if(keyboard_lock_status())
+    {
+        userHander_changeState(state, transitionToConfirmReceivePairKey);
+    }
+    else
+    {
+    	userHander_changeState (state, transitionToPairKey);
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>haveFlashSms</EventName>
+    <EventFunc>defaultHaveFlashSmsFn</EventFunc>
+    <EventDesciption>void defaultHaveFlashSmsFn(userStatePtr* state)
+{
+    // Turn on LCD and Led Keyboard
+    phone_on_led_kb_bl();
+
+    userHander_changeState(state, transitionToFlashSms);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>warningAirQuality</EventName>
+    <EventFunc>defaultPoorAirQuality</EventFunc>
+    <EventDesciption>void defaultPoorAirQuality (userStatePtr* state)
+{
+    // Turn on LCD and Led Keyboard
+    phone_on_led_kb_bl();
+
+    //Nhan:change to airquality warning state
+    userHander_changeState(state, transitionToWarningAirQuality);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>safeAirQuality</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateAirQualityMonitor</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateTalkTime</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>remoteLockEndcall</EventName>
+    <EventFunc>defaultRemoteLockEndcall</EventFunc>
+    <EventDesciption>void defaultRemoteLockEndcall (userStatePtr* state)
+{
+	(*state)-&gt;keyboardCallEnd(state);
+
+	uint32_t sendEvent = EVENT_SMS_USERHANDLER_REMOTE_LOCK;
+	Mailbox_post (g_mbox_user_handler, &amp;sendEvent, BIOS_WAIT_FOREVER);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>remoteEraseDataEndcall</EventName>
+    <EventFunc>defaultRemoteEraseDataEndcall</EventFunc>
+    <EventDesciption>void defaultRemoteEraseDataEndcall (userStatePtr* state)
+{
+	(*state)-&gt;keyboardCallEnd(state);
+
+	uint32_t sendEvent = EVENT_SMS_USERHANDLER_REMOTE_ERASE_DATA;
+	Mailbox_post (g_mbox_user_handler, &amp;sendEvent, BIOS_WAIT_FOREVER);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>remoteLock</EventName>
+    <EventFunc>defaultRemoteLock</EventFunc>
+    <EventDesciption>void defaultRemoteLock (userStatePtr* state)
+{
+    userHander_changeState (state, transitionToRemoteControlNotifyLock);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>remoteEraseData</EventName>
+    <EventFunc>defaultRemoteEraseData</EventFunc>
+    <EventDesciption>void defaultRemoteEraseData (userStatePtr* state)
+{
+    userHander_changeState (state, transitionToRemoteControlNotifyDestroyData);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>remoteUnlock</EventName>
+    <EventFunc>defaultRemoteUnlock</EventFunc>
+    <EventDesciption>void defaultRemoteUnlock (userStatePtr* state)
+{
+    userHander_changeState (state, transitionToRemoteControlNotifyUnlock);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardVolUp</EventName>
+    <EventFunc>defaultVolumeUp</EventFunc>
+    <EventDesciption />
+  </UserEvent>
+  <UserEvent>
+    <EventName>keyboardVolDown</EventName>
+    <EventFunc>defaultVolumeDown</EventFunc>
+    <EventDesciption>void defaultVolumeDown(userStatePtr* state)
+{
+	static uint8_t init = 1;
+
+    sound_setting_t sound = get_ring_tone_setting();
+    setVolume(sound.tone);
+    volumeDown();
+    sound.tone = getVolumeLevel();
+    g_settingRingTone.data.tone = sound.tone;
+    set_ring_tone_setting(sound);
+    codec_SetVolume(sound.tone);
+
+    if(init)
+    {
+    	create_volume_clock();
+    	init = 0;
+    }
+    else
+    {
+    	start_volume_clock();
+    }
+
+    uint32_t event = EVENT_USERHANDLER_GUI_DISPLAY_VOLUME;
+    send_gui_donot_care(event);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>volumeHide</EventName>
+    <EventFunc>defaultVolumeHide</EventFunc>
+    <EventDesciption />
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateAirValue</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>readPhonebookDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>readCalllogDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>readSMSDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>scanningNetworkDone</EventName>
+    <EventFunc>defaultScanningNetworkDone</EventFunc>
+    <EventDesciption>void defaultScanningNetworkDone(userStatePtr* state)
+{
+	uint32_t finalUserSendEvent;
+	finalUserSendEvent = getFinalGSMEventUserRequest();
+	if(finalUserSendEvent == 0)
+	{
+		return;
+	}
+
+	clearFinalGSMEventUserRequest();
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>scanningNetworkError</EventName>
+    <EventFunc>defaultScanningNetworkError</EventFunc>
+    <EventDesciption>void defaultScanningNetworkError(userStatePtr* state)
+{
+	uint32_t finalUserSendEvent;
+	finalUserSendEvent = getFinalGSMEventUserRequest();
+
+	// set auto choice
+	g_settingNetwork.auto_choice = 1;
+	if(finalUserSendEvent == 0)
+	{
+		return;
+	}
+	clearFinalGSMEventUserRequest();
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>registeringNetworkDone</EventName>
+    <EventFunc>defaultRegisteringNetworkDone</EventFunc>
+    <EventDesciption>void defaultRegisteringNetworkDone(userStatePtr* state)
+{
+	uint32_t finalUserSendEvent = getFinalGSMEventUserRequest();
+	if(finalUserSendEvent == 0)
+	{
+		return;
+	}
+
+	clearFinalGSMEventUserRequest();
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>registeringNetworkError</EventName>
+    <EventFunc>defaultRegisteringNetworkError</EventFunc>
+    <EventDesciption>void defaultRegisteringNetworkError(userStatePtr* state)
+{
+	uint32_t finalUserSendEvent;
+
+    // set auto choice
+	g_settingNetwork.auto_choice = 1;
+	finalUserSendEvent = getFinalGSMEventUserRequest();
+	if(finalUserSendEvent == 0)
+	{
+		return;
+	}
+	if(finalUserSendEvent == EVENT_USERHANDLER_GSM_MANUAL_SCANNING_NETWORK
+			|| finalUserSendEvent == EVENT_USERHANDLER_GSM_AUTOMATIC_SCANNING_NETWORK
+			|| finalUserSendEvent == EVENT_USERHANDLER_GSM_MANUAL_REGISTERING_NETWORK)
+	{
+		//Mailbox_post(g_mbox_gsm, &amp;finalUserSendEvent, BIOS_WAIT_FOREVER);
+	}
+
+	clearFinalGSMEventUserRequest();
+
+    uint32_t sendGuiEvent = EVENT_USERHANDLER_GUI_POPUP_CHANGING_NETWORK_ERROR;
+    send_gui_event_none_transittion(state, sendGuiEvent);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>changingSmscError</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>changingSmscDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>changingForwardCallcError</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>changingForwardCallDone</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>refreshGUI</EventName>
+    <EventFunc>defaultRefreshGUI</EventFunc>
+    <EventDesciption>void defaultRefreshGUI(userStatePtr* state)
+{
+    state_node_t* currNode = state_GetCurState();
+    if(currNode != NULL)
+    {
+        // donot refresh GUI if option state or lock keyboard presskey
+        if((strstr(currNode-&gt;userPtr-&gt;name, "OPTION") == NULL))
+        {
+            uint32_t sendEvent = currNode-&gt;gui_start_event;
+            if(sendEvent &gt; EVENT_GUI_START  &amp;&amp; sendEvent &lt; EVENT_GUI_END)
+            {
+                send_gui_donot_care(sendEvent);
+            }
+
+            sendEvent = currNode-&gt;gui_update_event;
+            if(sendEvent &gt; EVENT_GUI_START  &amp;&amp; sendEvent &lt; EVENT_GUI_END)
+            {
+                send_gui_donot_care(sendEvent);
+            }
+        }
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>oneShotClock</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>typingPassword</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateFirmwareRequest</EventName>
+    <EventFunc>defaultUpdateFimware</EventFunc>
+    <EventDesciption />
+  </UserEvent>
+  <UserEvent>
+    <EventName>lowPower</EventName>
+    <EventFunc>defaultLowPower</EventFunc>
+    <EventDesciption>void defaultLowPower(userStatePtr* state)
+{
+	userHander_changeState(state, transitionToNotifyBatteryPower);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>showShutdown</EventName>
+    <EventFunc>defaultShowShutdown</EventFunc>
+    <EventDesciption>void defaultShowShutdown(userStatePtr* state)
+{
+	phone_on_led_kb_bl();
+
+    // Turn on deepsleep counter
+    deepsleep_turn_on_counter();
+
+	SOS_DEBUG("Receive event show shutdown\r\n");
+    // Create cancel timeout show
+    oneShotPower_create(TICKS_CANCEL_SHOW_SHUTDOWN);
+    userHander_changeState(state, transitionToShowShutdown);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>cancelShutdown</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateWaitingCallStatus</EventName>
+    <EventFunc>defaultUpdateWaitingCallStatus</EventFunc>
+    <EventDesciption>void defaultUpdateWaitingCallStatus(userStatePtr* state)
+{
+	SOS_DEBUG("Update status call status\r\n");
+	phone_t* phoneRef =  getPhoneRef();
+	//get waiting call status
+	phoneRef-&gt;call.waiting_call = u8IsWaitingCallActive &amp; 0x01;
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>respondFromGSM</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>errorRespond</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>okRespond</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>invalidDisplay</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateIncomingCall</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>notifySIMRemoveInsert</EventName>
+    <EventFunc>notifySIMRemoveInsert</EventFunc>
+    <EventDesciption>void notifySIMRemoveInsert(userStatePtr* state)
+{
+	// POPUP show notify SIM removed
+	userHander_changeState(state, transitionToNotify_SIM_Remove);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>oneshotCallConnected</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>respondGsmCheckSIMState</EventName>
+    <EventFunc>defaultFristTimeRespondCheckSIMState</EventFunc>
+    <EventDesciption>void defaultFristTimeRespondCheckSIMState(userStatePtr* state)
+{
+    if(unicmp(get_carrier_name(), text.simWaitPin) == 0)
+    {
+        SOS_DEBUG("received gsm respond to user handler\r\n");
+        if(SIM_STATE_SIM_PIN == sysSIMChecker.simState)
+        {
+            sysSIMChecker.isRequirePINStartup = 1;
+            userHander_changeState(state, transitionToSafe_SIM_PIN_startup);
+        }
+        else if(SIM_STATE_SIM_PUK == sysSIMChecker.simState)
+        {
+            sysSIMChecker.isRequirePINStartup = 0;
+            userHander_changeState(state, transitionToSafe_SIM_PUK_startup);
+        }
+        else if(SIM_STATE_FAILURE == sysSIMChecker.simState)
+        {
+            sysSIMChecker.isRequirePINStartup = 0;
+            userHander_changeState(state, transitionToSafeChange_SIM_ERROR);
+        }
+        else
+        {
+            sysSIMChecker.isRequirePINStartup = 0;
+        }
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateGaugeInfor</EventName>
+    <EventFunc>gauge_infor_update</EventFunc>
+    <EventDesciption>void gauge_infor_update (userStatePtr* state)
+{
+    uint32_t sendEvent;
+    static uint8_t old_vbat_percent;
+
+    SOS_DEBUG("percent pin: %d", gauge_infor.percent);
+
+    if(charger_infor.is_charging == CHARGE_FULL)
+    {
+#warning fake charge full is 100%
+    	gauge_infor.percent = 100;
+    }
+
+    g_vbat_percent = gauge_infor.percent;
+
+    g_pinLevel = getPinLevel(5, &amp;g_vbat_percent);
+    // popup for user want to be low power mode
+    // post to user handler to show or hide screen
+
+    if(checkSwitchLowPowerMode(old_vbat_percent, g_vbat_percent))
+    {
+        SOS_DEBUG("DETECT low power mode\r\n");
+        Event_post(event_user_handler, Event_Id_18);
+
+    }
+    else if(checkBreakLowPowerMode(old_vbat_percent, g_vbat_percent))
+    {
+        // auto process break low power mode
+        // auto process, donot pop for user handler
+        autoExitLowPowerMode();
+    }
+    else if(checkForceShutdownSystem(old_vbat_percent, g_vbat_percent))
+    {
+    	shutDownPhoneLowPower();
+    	SOS_DEBUG("Turn off Phone: pin 0%");
+
+        //send event to stm32
+        pmic_set_cmd(PMIC_CMD_SHUTDOWN);
+
+        userHander_changeState(state, transitionToPhoneWaiting);
+
+        uint32_t event = EVENT_USERHANDLER_STM32_SET_PMIC_INFOR;
+        Mailbox_post (g_mbox_uart_stm32, &amp;event, BIOS_WAIT_FOREVER);
+        return;
+    }
+
+    old_vbat_percent = g_vbat_percent;
+
+    sendEvent = EVENT_UPDATE_TOPBAR;
+    send_gui_donot_care(sendEvent);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateChargerInfor</EventName>
+    <EventFunc>charger_infor_update</EventFunc>
+    <EventDesciption>void charger_infor_update (userStatePtr* state)
+{
+	SOS_DEBUG("update charger in topbar\r\n");
+    // Reset deepsleep counter
+    deepsleep_turn_on_counter();
+
+    // Turn on led keyboard backlight
+    phone_on_led_kb_bl();
+
+    uint32_t sendEvent;
+    if(charger_infor.is_charging == CHARGE_ON)
+    {
+    	SOS_DEBUG("charge on\r\n");
+        // display charging then auto hide
+        sendEvent = EVENT_USERHANDLER_GUI_SHOW_CHARGE_PLUGIN;
+        send_gui_donot_care(sendEvent);
+    }
+    else if(charger_infor.is_charging == CHARGE_FULL)
+	{
+    	SOS_DEBUG("charge full\r\n");
+#warning fake 100% when charge full
+    	g_vbat_percent = 100;
+    	g_pinLevel = getPinLevel(5, &amp;g_vbat_percent);
+    	displayNotifyBatteryFullPower();
+	}
+    else
+    {
+    	SOS_DEBUG("charge off\r\n");
+    }
+
+    sendEvent = EVENT_UPDATE_TOPBAR;
+    send_gui_donot_care(sendEvent);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateTopbar</EventName>
+    <EventFunc>update_topbar_init</EventFunc>
+    <EventDesciption>void update_topbar_init (userStatePtr* state)
+{
+    uint32_t sendEvent = EVENT_UPDATE_TOPBAR;
+    send_gui_donot_care(sendEvent);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updatePmicInfor</EventName>
+    <EventFunc>pmic_infor_update</EventFunc>
+    <EventDesciption>void pmic_infor_update (userStatePtr* state)
+{
+    // Check data
+    if (pmic_infor.cmd == PMIC_CMD_CANCEL)
+    {
+        // Send event to User_handler
+        uint32_t event = EVENT_TIMER_USERHANDLER_CANCEL_SHUTDOWN;
+        Mailbox_post(g_mbox_user_handler, &amp;event, BIOS_WAIT_FOREVER);
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateBmeInfor</EventName>
+    <EventFunc>bme_data_infor_update</EventFunc>
+    <EventDesciption>void bme_data_infor_update (userStatePtr* state)
+{
+	static uint8_t air_old_state = AIR_STAT_CALIBRATING;
+	static uint8_t air_warning_state = AIR_STAT_CALIBRATING;
+
+	uint32_t event;
+	// Check status to get notification
+	if ((air_old_state != bme_data_infor.air_value.status) &amp;&amp; (bme_setting_infor.background))
+	{
+		switch (bme_data_infor.air_value.status)
+		{
+			case AIR_STAT_VERY_BAD:
+			case AIR_STAT_WORSE:
+			case AIR_STAT_BAD:
+			case AIR_STAT_LITTLE_BAD:
+				if ((air_old_state &lt; bme_data_infor.air_value.status) &amp;&amp; (!check_state_call_in_list()))
+				{
+					if(air_old_state &lt; air_warning_state)
+					{
+					        if(0 == (air_warning_state - air_old_state - 1))
+					        {
+					                break;
+					        }
+					}
+
+					air_warning_state = bme_data_infor.air_value.status;
+
+					// Will not notify when having call state in list
+					event = EVENT_SENSOR_USERHANDLER_POOR_AIR_QUALITY;
+					Mailbox_post (g_mbox_user_handler, &amp;event, BIOS_WAIT_FOREVER);
+				}
+				break;
+			default:
+				event = EVENT_SENSOR_USERHANDLER_SAFE_AIR_QUALITY;
+				Mailbox_post (g_mbox_user_handler, &amp;event, BIOS_WAIT_FOREVER);
+				break;
+		}
+
+		air_old_state = bme_data_infor.air_value.status;
+	}
+	// Update topbar
+	event = EVENT_UPDATE_TOPBAR;
+	send_gui_donot_care(event);
+
+	//send event update to USERHANDLER
+	event = EVENT_SENSOR_USERHANDLER_UPDATE_AIR_VALUE;
+	Mailbox_post (g_mbox_user_handler, &amp;event, BIOS_WAIT_FOREVER);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateAcceInfor</EventName>
+    <EventFunc>acce_infor_update</EventFunc>
+    <EventDesciption>void acce_infor_update (userStatePtr* state)
+{
+	static uint32_t old_tick = 0;
+	uint32_t current_tick;
+
+    SOS_DEBUG("acce_infor.acce_event = 0x%x, acce_infor.acce_setting = 0x%x \r\n",
+        acce_infor.acce_event, acce_infor.acce_setting);
+    if ((acce_infor.acce_event == ACCE_PICKUP) &amp;&amp;
+        (acce_infor.acce_setting &amp; ACCE_PICKUP_ENABLE_MASK))
+    {
+        SOS_DEBUG("Pick up from table\r\n");
+        Event_post(event_user_handler, Event_Id_13);
+    }
+    else if ((acce_infor.acce_event == ACCE_FLIP_DOWN) &amp;&amp;
+        (acce_infor.acce_setting &amp; ACCE_FLIP_ENABLE_MASK))
+    {
+        SOS_DEBUG("Flip down\r\n");
+        Event_post(event_user_handler, Event_Id_05);
+    }
+    else if ((acce_infor.acce_event == ACCE_FLIP_UP) &amp;&amp;
+            (acce_infor.acce_setting &amp; ACCE_FLIP_ENABLE_MASK))
+    {
+        SOS_DEBUG("Flip up\r\n");
+        Event_post(event_user_handler, Event_Id_17);
+    }
+    else if ((acce_infor.acce_event == ACCE_TURN) &amp;&amp;
+        (acce_infor.acce_setting &amp; ACCE_TURN_ENABLE_MASK))
+    {
+        SOS_DEBUG("Turn\r\n");
+        Event_post(event_user_handler, Event_Id_04);
+    }
+    else if ((acce_infor.acce_event == ACCE_SHAKE) &amp;&amp;
+        (acce_infor.acce_setting &amp; ACCE_SHAKE_ENABLE_MASK))
+    {
+    	current_tick = Clock_getTicks();
+
+        if (2000 &lt; (current_tick - old_tick))
+        {
+        	SOS_DEBUG("Shake\r\n");
+            Event_post(event_user_handler, Event_Id_06);
+        }
+        else
+        {
+        	SOS_DEBUG("Shake too Fast, Reject action\r\n");
+        }
+        old_tick = current_tick;
+    }
+    else if ((acce_infor.acce_event == ACCE_DOUBLE_TAP) &amp;&amp;
+        (acce_infor.acce_setting &amp; ACCE_DOUBLE_TAB_ENABLE_MASK))
+    {
+        SOS_DEBUG("Double tap\r\n");
+        Event_post(event_user_handler, Event_Id_12);
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateLedInfor</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateSleepInfor</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateWakeupSrcInfor</EventName>
+    <EventFunc>wakeup_src_behavior</EventFunc>
+    <EventDesciption>void wakeup_src_behavior (userStatePtr* state)
+{
+    switch (wakeup_src_infor.source)
+    {
+        case WAKEUP_KB:
+            SOS_DEBUG("Wake up source because Keyboard\r\n");
+            break;
+        case WAKEUP_HL:
+            SOS_DEBUG("Wake up source because HL\r\n");
+            break;
+        case WAKEUP_BME:
+            SOS_DEBUG("Wake up source because BME\r\n");
+            break;
+        case WAKEUP_ACCE:
+            SOS_DEBUG("Wake up source because ACCE\r\n");
+            break;
+        case WAKEUP_CHARGER:
+            SOS_DEBUG("Wake up source because CHARGER\r\n");
+            break;
+        case WAKEUP_GAUGE:
+            SOS_DEBUG("Wake up source because GAUGE\r\n");
+            break;
+        default:
+            break;
+    }
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updatePakageInfor</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>updateTimeInfor</EventName>
+    <EventFunc>time_infor_update</EventFunc>
+    <EventDesciption>void time_infor_update (userStatePtr* state)
+{
+    // Update donot disturb
+    update_donot_disturb_with_time();
+    uint32_t event = EVENT_USERHANDLER_REFRESH_GUI;
+    Mailbox_post (g_mbox_user_handler, &amp;event, BIOS_WAIT_FOREVER);
+}</EventDesciption>
+  </UserEvent>
+  <UserEvent>
+    <EventName>haveNewSmsRemoteLock</EventName>
+    <EventFunc>defaultUserHandler</EventFunc>
+    <EventDesciption>void defaultUserHandler (userStatePtr* state)
+{
+	//do nothing
+}</EventDesciption>
+  </UserEvent>
+</ArrayOfUserEvent>

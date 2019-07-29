@@ -88,7 +88,7 @@ namespace XphoneStateForm
         /// <returns></returns>
         public static string ParseFunc(string func, string fileContent)
         {
-            string funcDefine = "void " + func + " (userStatePtr* state)\r\n{";
+            string funcDefine = func + " (userStatePtr* state)\r\n{";
             int idx = fileContent.IndexOf(funcDefine);
             int countOpen = 0;
             int countClose = 0;
@@ -99,7 +99,7 @@ namespace XphoneStateForm
             {
                 // cannot found with fomat string
                 // try with another fomat
-                funcDefine = "void " + func + "(userStatePtr* state)\r\n{";
+                funcDefine = func + "(userStatePtr* state)\r\n{";
                 idx = fileContent.IndexOf(funcDefine);
             }
 
